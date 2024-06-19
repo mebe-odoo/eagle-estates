@@ -29,6 +29,9 @@ class EagleProperty(models.Model):
 
     age = fields.Integer("Age", compute="_compute_age", inverse="_inverse_age", readonly=False)
 
+    parent_id = fields.Many2one('eagle.property', string="Parent Property")
+    child_ids = fields.One2many('eagle.property', 'parent_id', string="Child Properties")
+
     _sql_constraints = [
         ('name_unique', 'UNIQUE(name)', 'Property name must be unique'),
     ]

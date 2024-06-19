@@ -27,10 +27,13 @@
                                 </div>
                             </group>
                         </group>
-
                         <group>
                             <field name="tag_ids"/>
                             <field name="room_ids"/>
+                        </group>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="child_ids"/>
                         </group>
                     </sheet>
                 </form>
@@ -49,17 +52,29 @@
             </field>
         </record>
 
-        <record id="eagle_properties_action" model="ir.actions.act_window">
-            <field name="name">Properties</field>
+        <record id="eagle_properties_compounds_action" model="ir.actions.act_window">
+            <field name="name">Compounds</field>
             <field name="res_model">eagle.property</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id', '=', False)]</field>
+            <field name="context">{'default_name': "New Compound"}</field>
+        </record>
+
+        <record id="eagle_properties_units_action" model="ir.actions.act_window">
+            <field name="name">Units</field>
+            <field name="res_model">eagle.property</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id', '!=', False)]</field>
+            <field name="context">{'default_name': "New Unit"}</field>
         </record>
 
         <menuitem id="menu_eagle_estates_root" name="Eagle Estates"
                   web_icon="eagle_estates,static/description/icon.png">
             <menuitem id="menu_eagle_estates_properties_root" name="Properties" sequence="10">
-                <menuitem id="menu_eagle_estates_properties" action="eagle_properties_action"
-                          name="Properties" sequence="10"/>
+                <menuitem id="menu_eagle_estates_compounds" action="eagle_properties_compounds_action"
+                          name="Compounds" sequence="10"/>
+                <menuitem id="menu_eagle_estates_units" action="eagle_properties_units_action"
+                          name="Units" sequence="10"/>
                 <menuitem id="menu_eagle_estates_room" action="eagle_property_rooms_action"
                           name="Rooms" sequence="20"/>
                 <menuitem id="menu_eagle_estates_tag" action="eagle_tags_action"
