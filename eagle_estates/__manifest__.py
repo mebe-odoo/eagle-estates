@@ -8,5 +8,7 @@
     'category': 'Eagle Tech/Real Estate',
     'version': '17.0.0.1',
     'depends': ['base', 'mail', 'portal'],
-    'data': []
+    'data': [
+        'views/eagle_property_views.xml'
+    ]
 }
