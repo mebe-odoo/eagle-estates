@@ -30,6 +30,12 @@
             </field>
         </record>
 
+        <record id="eagle_properties_action" model="ir.actions.act_window">
+            <field name="name">Properties</field>
+            <field name="res_model">eagle.property</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <menuitem id="menu_eagle_estates_root" name="Eagle Estates">
             <menuitem id="menu_eagle_estates_properties" name="Properties" sequence="10"/>
         </menuitem>
