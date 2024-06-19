@@ -20,3 +20,12 @@ class EaglePropertyRoom(models.Model):
     city = fields.Char(related='property_id.city')
     state_id = fields.Many2one(related='property_id.state_id')
     country_id = fields.Many2one(related='property_id.country_id')
+
+    def action_open_surface_wizard(self):
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "eagle.property.room.surface.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {"default_room_id": self.id}
+        }

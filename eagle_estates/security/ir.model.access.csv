@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_create,perm_write,perm_unlink
 access_eagle_property,access_eagle_property,model_eagle_property,,1,1,1,1
 access_eagle_property_room,access_eagle_property_room,model_eagle_property_room,,1,1,1,1
 access_eagle_tag,access_eagle_tag,model_eagle_tag,,1,1,1,1
+access_eagle_property_room_surface_compute_wizard,access_eagle_property_room_surface_compute_wizard,model_eagle_property_room_surface_wizard,,1,1,1,1

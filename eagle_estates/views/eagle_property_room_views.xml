@@ -7,6 +7,9 @@
             <field name="model">eagle.property.room</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="action_open_surface_wizard" string="Compute Surface Area" type="object"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="type"/>

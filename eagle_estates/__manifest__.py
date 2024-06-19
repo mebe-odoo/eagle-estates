@@ -12,6 +12,7 @@
         'security/ir.model.access.csv',
         'data/eagle_tag_data.xml',
         'data/eagle_property_data.xml',
+        'wizards/eagle_property_room_surface_wizard_views.xml',
         'views/eagle_tag_views.xml',
         'views/eagle_property_room_views.xml',
         'views/eagle_property_views.xml'

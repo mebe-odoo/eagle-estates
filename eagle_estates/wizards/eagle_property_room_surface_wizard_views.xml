@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+        <record id="view_eagle_property_room_area_wizard_form" model="ir.ui.view">
+            <field name="name">eagle.property.room.area.wizard.form</field>
+            <field name="model">eagle.property.room.surface.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="length"/>
+                            </group>
+                            <group>
+                                <field name="width"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="surface"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_confirm" string="Confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
