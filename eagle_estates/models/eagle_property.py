@@ -12,3 +12,6 @@ class EagleProperty(models.Model):
     name = fields.Char(string="Property Name", required=True)
     construction_date = fields.Date("Construction Date", required=True, default=fields.Date.today)
     surface = fields.Float("Surface", default=0.0)
+
+    tag_ids = fields.Many2many('eagle.tag', string="Tags")
+    room_ids = fields.One2many('eagle.property.room', 'property_id', string="Rooms")

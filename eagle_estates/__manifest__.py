@@ -10,6 +10,9 @@
     'depends': ['base', 'mail', 'portal'],
     'data': [
         'security/ir.model.access.csv',
+        'views/eagle_tag_views.xml',
+        'views/eagle_property_room_views.xml',
         'views/eagle_property_views.xml'
-    ]
+    ],
+    'application': True
 }

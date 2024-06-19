@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_eagle_property_room_form" model="ir.ui.view">
+            <field name="name">eagle.property.room.form</field>
+            <field name="model">eagle.property.room</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="type"/>
+                            <field name="surface"/>
+                            <field name="property_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_eagle_property_room_tree" model="ir.ui.view">
+            <field name="name">eagle.property.room.tree</field>
+            <field name="model">eagle.property.room</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="type"/>
+                    <field name="surface"/>
+                    <field name="property_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="eagle_property_rooms_action" model="ir.actions.act_window">
+            <field name="name">Rooms</field>
+            <field name="res_model">eagle.property.room</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

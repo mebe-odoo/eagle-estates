@@ -13,6 +13,10 @@
                             <field name="construction_date"/>
                             <field name="surface"/>
                         </group>
+                        <group>
+                            <field name="tag_ids"/>
+                            <field name="room_ids"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
@@ -36,8 +40,16 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="menu_eagle_estates_root" name="Eagle Estates" web_icon="eagle_estates,static/description/icon.png">
-            <menuitem id="menu_eagle_estates_properties" action="eagle_properties_action" name="Properties" sequence="10"/>
+        <menuitem id="menu_eagle_estates_root" name="Eagle Estates"
+                  web_icon="eagle_estates,static/description/icon.png">
+            <menuitem id="menu_eagle_estates_properties_root" name="Properties" sequence="10">
+                <menuitem id="menu_eagle_estates_properties" action="eagle_properties_action"
+                          name="Properties" sequence="10"/>
+                <menuitem id="menu_eagle_estates_room" action="eagle_property_rooms_action"
+                          name="Rooms" sequence="20"/>
+                <menuitem id="menu_eagle_estates_tag" action="eagle_tags_action"
+                          name="Tags" sequence="30"/>
+            </menuitem>
         </menuitem>
 
     </data>
