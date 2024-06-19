@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="eagle_property_apartment_217" model="eagle.property">
+            <field name="name">Apartment 217</field>
+            <field name="construction_date">2009-10-01</field>
+        </record>
+
+        <record id="eagle_property_apartment_9905" model="eagle.property">
+            <field name="name">Apartment 9905</field>
+            <field name="construction_date">2010-04-24</field>
+        </record>
+
+        <record id="eagle_property_burj_khalifa" model="eagle.property">
+            <field name="name">Burj Khalifa</field>
+            <field name="surface">5670000</field>
+            <field name="construction_date">2009-10-01</field>
+            <field name="street">1 Sheikh Mohammed bin Rashid Blvd</field>
+            <field name="zip">00000</field>
+            <field name="city">Dubai</field>
+            <field name="state_id" ref="base.state_ae_du"/>
+            <field name="country_id" ref="base.ae"/>
+            <field name="tag_ids" eval="[
+                  Command.clear(),
+                  Command.link(ref('eagle_tag_residential')),
+                  Command.link(ref('eagle_tag_commercial')),
+              ]"/>
+            <field name="child_ids" eval="[
+                  Command.clear(),
+                  Command.link(ref('eagle_property_apartment_217')),
+                  Command.link(ref('eagle_property_apartment_9905'))
+              ]"/>
+        </record>
+
+    </data>
+</odoo>

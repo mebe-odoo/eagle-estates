@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="eagle_tag_residential" model="eagle.tag">
+            <field name="name">Residential</field>
+        </record>
+
+        <record id="eagle_tag_commercial" model="eagle.tag">
+            <field name="name">Commercial</field>
+        </record>
+
+    </data>
+</odoo>
