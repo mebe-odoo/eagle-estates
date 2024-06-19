@@ -33,9 +33,27 @@ class EagleProperty(models.Model):
     parent_id = fields.Many2one('eagle.property', string="Parent Property")
     child_ids = fields.One2many('eagle.property', 'parent_id', string="Child Properties")
 
+    room_count = fields.Integer(compute="_compute_room_count")
+
     _sql_constraints = [
         ('name_unique', 'UNIQUE(name)', 'Property name must be unique'),
     ]
+
+    @api.depends("room_ids")
+    def _compute_room_count(self):
+        for record in self:
+            record.room_count = len(record.room_ids)
+
+    def action_view_rooms(self):
+        action = self.env.ref("eagle_estates.eagle_property_rooms_action").read()[0]
+        action["domain"] = [("property_id", "=", self.id)]
+        return action
+
+    def action_create_room(self):
+        action = self.env.ref("eagle_estates.eagle_property_rooms_action").read()[0]
+        action["context"] = {"default_property_id": self.id}
+        action["views"] = [(False, 'form')]
+        return action
 
     @api.constrains('construction_date')
     def _constrain_construction_date(self):

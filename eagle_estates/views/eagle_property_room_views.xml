@@ -22,7 +22,7 @@
             <field name="name">eagle.property.room.tree</field>
             <field name="model">eagle.property.room</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree create="false">
                     <field name="type"/>
                     <field name="surface"/>
                     <field name="property_id"/>

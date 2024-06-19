@@ -7,7 +7,16 @@
             <field name="model">eagle.property</field>
             <field name="arch" type="xml">
                 <form string="Property">
+                    <header>
+                        <button name="action_create_room" string="Create Room" type="object"/>
+                    </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="action_view_rooms" type="object" icon="fa-list"
+                                    invisible="room_count == 0">
+                                <field string="Rooms" name="room_count" widget="statinfo"/>
+                            </button>
+                        </div>
                         <group>
                             <group>
                                 <field name="name"/>
