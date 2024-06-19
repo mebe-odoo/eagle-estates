@@ -31,10 +31,21 @@
                             <field name="tag_ids"/>
                             <field name="room_ids"/>
                         </group>
-                        <group>
-                            <field name="parent_id"/>
-                            <field name="child_ids"/>
-                        </group>
+                        <notebook>
+                            <page name="apartments_houses" string="Apartments/Houses">
+                                <group>
+                                    <field name="parent_id" invisible="bool(child_ids)"/>
+                                </group>
+                                <field name="child_ids" invisible="bool(parent_id)">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="construction_date"/>
+                                        <field name="surface"/>
+                                        <field name="age"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
