@@ -36,8 +36,8 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="menu_eagle_estates_root" name="Eagle Estates">
-            <menuitem id="menu_eagle_estates_properties" name="Properties" sequence="10"/>
+        <menuitem id="menu_eagle_estates_root" name="Eagle Estates" web_icon="eagle_estates,static/description/icon.png">
+            <menuitem id="menu_eagle_estates_properties" action="eagle_properties_action" name="Properties" sequence="10"/>
         </menuitem>
 
     </data>

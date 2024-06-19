@@ -9,6 +9,7 @@
     'version': '17.0.0.1',
     'depends': ['base', 'mail', 'portal'],
     'data': [
+        'security/ir.model.access.csv',
         'views/eagle_property_views.xml'
     ]
 }
