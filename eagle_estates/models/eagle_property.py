@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from odoo.tools import relativedelta
+from odoo.osv.expression import AND
 
 
 class EagleProperty(models.Model):
@@ -56,3 +57,17 @@ class EagleProperty(models.Model):
     def _inverse_age(self):
         for property_id in self:
             property_id.construction_date = fields.Date.today() - relativedelta(years=property_id.age)
+
+    @api.depends('construction_date')
+    def _compute_display_name(self):
+        for record in self:
+            name = record.name
+            if record.construction_date:
+                name += " | " + str(record.construction_date)
+            record.display_name = name
+
+    @api.model
+    def _name_search(self, name, domain=None, operator='ilike', limit=None, order=None):
+        if name:
+            domain = AND([domain, ['|', ('name', 'ilike', name), ('construction_date', 'ilike', name)]])
+        return self._search(domain, limit=limit, order=order)
