@@ -23,6 +23,7 @@
                                 <field name="construction_date"/>
                                 <field name="surface"/>
                                 <field name="age"/>
+                                <field name="is_published" widget="boolean_toggle"/>
                             </group>
                             <group name="address_details">
                                 <label for="street" string="Address"/>

@@ -7,6 +7,7 @@ from odoo.osv.expression import AND
 class EagleProperty(models.Model):
     _name = "eagle.property"
     _description = "Eagle Property"
+    _inherit = "portal.mixin"
     _order = 'construction_date DESC, id'
     # There is no need to explicitly set _rec_name to name in this case,
     # as that is the default value.
@@ -35,9 +36,16 @@ class EagleProperty(models.Model):
 
     room_count = fields.Integer(compute="_compute_room_count")
 
+    is_published = fields.Boolean("Is Published", default=True)
+
     _sql_constraints = [
         ('name_unique', 'UNIQUE(name)', 'Property name must be unique'),
     ]
+
+    def _compute_access_url(self):
+        super()._compute_access_url()
+        for record in self:
+            record.access_url = '/my/properties/%s' % record.id
 
     @api.depends("room_ids")
     def _compute_room_count(self):

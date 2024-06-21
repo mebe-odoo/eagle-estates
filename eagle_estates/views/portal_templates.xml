@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="portal_my_home_properties" name="Show Properties" inherit_id="portal.portal_my_home"
+                  customize_show="True" priority="30">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="icon" t-value="'/sale/static/src/img/bag.svg'"/>
+                    <t t-set="bg_color" t-value="'alert alert-primary'"/>
+                    <t t-set="show_count" t-value="True"/>
+                    <t t-set="text">Check published Properties</t>
+                    <t t-set="title">Published Properties</t>
+                    <t t-set="url" t-value="'/my/properties'"/>
+                    <t t-set="placeholder_count" t-value="'properties_count'"/>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="portal_my_properties" name="My Properties">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Properties</t>
+                </t>
+                <t t-if="not properties">
+                    <p class="alert alert-warning">There are currently no published properties.</p>
+                </t>
+                <t t-if="properties" t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th>Property</th>
+                            <th>Construction Date</th>
+                            <th>Surface</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="properties" t-as="prop">
+                            <tr>
+                                <td>
+                                    <a t-att-href="prop.get_portal_url()" t-att-title="prop.name">
+                                        <t t-out="prop.name"/>
+                                    </a>
+                                </td>
+                                <td><span t-field="prop.construction_date"/></td>
+                                <td><span t-field="prop.surface"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </t>
+            </t>
+        </template>
+
+        <template id="portal_my_property" name="My Property" inherit_id="portal.portal_sidebar" primary="True">
+            <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+                <h1 t-field="property_id.name" />
+                <div role="alert" class="alert alert-info">
+                    <h4>Property Details</h4>
+                    <p>
+                        Content for the property goes here!
+                    </p>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
